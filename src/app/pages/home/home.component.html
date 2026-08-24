@@ -1,0 +1,355 @@
+<div class="page-shell">
+  <header class="header" [class.header--scrolled]="scrolled()">
+    <div class="header__inner">
+      <a
+        class="brand"
+        href="#home"
+        aria-label="APE home"
+        (click)="scrollTo('home'); $event.preventDefault()"
+      >
+        <img src="ape-logo.png" alt="APE logo" />
+      </a>
+
+      <nav class="nav nav--desktop" aria-label="Primary navigation">
+        <button type="button" (click)="scrollTo('services')">Services</button>
+        <button type="button" (click)="scrollTo('technology')">Technology</button>
+        <button type="button" (click)="scrollTo('process')">Process</button>
+        <button type="button" (click)="scrollTo('about')">About</button>
+      </nav>
+
+      <a class="header__contact" href="mailto:info@ape-org.com">
+        info@ape-org.com
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Toggle menu"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu" [class.mobile-menu--open]="menuOpen()">
+        <button type="button" (click)="scrollTo('services')">Services</button>
+        <button type="button" (click)="scrollTo('technology')">Technology</button>
+        <button type="button" (click)="scrollTo('process')">Process</button>
+        <button type="button" (click)="scrollTo('about')">About</button>
+        <a href="mailto:info@ape-org.com">info@ape-org.com</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span></span>
+          Software development company
+        </div>
+
+        <h1>
+          We build software
+          <span>made for growth.</span>
+        </h1>
+
+        <p class="hero__description">
+          APE creates modern web applications, mobile products, APIs and business platforms
+          with a strong focus on performance, usability and scalable architecture.
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="mailto:info@ape-org.com">
+            Start your project
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <button class="button button--secondary" type="button" (click)="scrollTo('services')">
+            Explore services
+          </button>
+        </div>
+
+        <div class="hero__meta">
+          <div>
+            <strong>Clean Architecture</strong>
+            <span>Maintainable products</span>
+          </div>
+          <div>
+            <strong>Modern UI/UX</strong>
+            <span>Clear user experiences</span>
+          </div>
+          <div>
+            <strong>Scalable Systems</strong>
+            <span>Built for the next stage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__blob hero__blob--one"></div>
+        <div class="hero__blob hero__blob--two"></div>
+
+        <div class="dashboard-card">
+          <div class="dashboard-card__top">
+            <div class="dashboard-card__dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <small>ape.workspace</small>
+          </div>
+
+          <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+              <div class="dashboard-sidebar__logo">A</div>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </aside>
+
+            <div class="dashboard-content">
+              <div class="dashboard-title">
+                <div>
+                  <small>Product overview</small>
+                  <strong>Digital operations</strong>
+                </div>
+                <span class="online-chip">Live</span>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <span>Performance</span>
+                  <strong>98%</strong>
+                </div>
+                <div class="metric-card">
+                  <span>Availability</span>
+                  <strong>99.9%</strong>
+                </div>
+                <div class="metric-card">
+                  <span>Deployments</span>
+                  <strong>24</strong>
+                </div>
+              </div>
+
+              <div class="chart-card">
+                <div class="chart-card__heading">
+                  <span>Growth</span>
+                  <strong>+42%</strong>
+                </div>
+
+                <div class="chart-grid">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+
+                <svg viewBox="0 0 460 120" role="presentation">
+                  <defs>
+                    <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#16b7f1" stop-opacity=".28" />
+                      <stop offset="100%" stop-color="#16b7f1" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    class="chart-area"
+                    d="M0 105 C55 88, 75 93, 112 70 C155 43, 187 74, 225 52 C270 24, 298 52, 340 31 C385 8, 412 25, 460 8 L460 120 L0 120 Z"
+                  />
+                  <path
+                    class="chart-line"
+                    d="M0 105 C55 88, 75 93, 112 70 C155 43, 187 74, 225 52 C270 24, 298 52, 340 31 C385 8, 412 25, 460 8"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-card float-card--left">
+          <span class="float-card__icon">&lt;/&gt;</span>
+          <div>
+            <strong>Modern stack</strong>
+            <small>Reliable engineering</small>
+          </div>
+        </div>
+
+        <div class="float-card float-card--right">
+          <span class="float-card__status"></span>
+          <div>
+            <strong>Production ready</strong>
+            <small>Secure & scalable</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="client-strip">
+      <div class="section client-strip__inner">
+        <span>Strategy</span>
+        <i></i>
+        <span>Design</span>
+        <i></i>
+        <span>Development</span>
+        <i></i>
+        <span>Cloud</span>
+        <i></i>
+        <span>Support</span>
+      </div>
+    </section>
+
+    <section id="services" class="section content-section">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">Our services</span>
+          <h2>Everything needed to build a strong digital product.</h2>
+        </div>
+
+        <p>
+          From the first idea to production, APE combines product thinking, modern design
+          and dependable engineering in one clear process.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        @for (service of services; track service.title; let index = $index) {
+          <article class="service-card">
+            <div class="service-card__top">
+              <span class="service-card__number">0{{ index + 1 }}</span>
+              <div class="service-card__icon">{{ service.icon }}</div>
+            </div>
+
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+
+            <span class="service-card__arrow" aria-hidden="true">↗</span>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section id="technology" class="section technology-section">
+      <div class="technology-panel">
+        <div class="technology-copy">
+          <span class="section-label">Technology</span>
+          <h2>Modern tools. Clean foundations.</h2>
+          <p>
+            We choose technologies based on the product, performance needs and long-term
+            maintainability — not short-term trends.
+          </p>
+
+          <a href="mailto:info@ape-org.com">
+            Discuss your technology stack
+            <span>↗</span>
+          </a>
+        </div>
+
+        <div class="technology-grid">
+          @for (technology of technologies; track technology.name) {
+            <div class="technology-card">
+              <strong>{{ technology.shortName }}</strong>
+              <span>{{ technology.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section content-section process-section">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">How we work</span>
+          <h2>A clear process from concept to launch.</h2>
+        </div>
+
+        <p>
+          No unnecessary complexity. Every phase has a clear purpose, expected output and
+          technical direction.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        @for (step of process; track step.number) {
+          <article class="process-card">
+            <span class="process-card__number">{{ step.number }}</span>
+            <div class="process-card__line"></div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="about-card">
+        <div class="about-card__content">
+          <span class="section-label">Why APE</span>
+          <h2>Software should solve problems, not create new ones.</h2>
+
+          <p>
+            Our focus is straightforward: clean code, useful design, secure architecture,
+            strong performance and a product your team can continue to evolve.
+          </p>
+
+          <div class="about-points">
+            <div>
+              <span>01</span>
+              <strong>Business-focused product thinking</strong>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>Modern responsive UI/UX</strong>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Secure and maintainable architecture</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card__brand">
+          <div class="brand-orbit brand-orbit--outer"></div>
+          <div class="brand-orbit brand-orbit--inner"></div>
+          <div class="about-logo-box">
+            <img src="ape-logo.png" alt="APE logo" />
+          </div>
+          <span>BUILD • LAUNCH • SCALE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="contact-card">
+        <div>
+          <span class="section-label">Start a project</span>
+          <h2>Ready to build something better?</h2>
+          <p>
+            Tell us about your idea, current system or next digital product.
+          </p>
+        </div>
+
+        <a class="contact-card__button" href="mailto:info@ape-org.com">
+          <span>
+            <small>Contact APE</small>
+            info@ape-org.com
+          </span>
+          <b aria-hidden="true">↗</b>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section footer__inner">
+      <a class="footer__logo" href="#home" aria-label="APE home">
+        <img src="ape-logo.png" alt="APE logo" />
+      </a>
+
+      <p>© {{ currentYear }} APE. All rights reserved.</p>
+
+      <a href="mailto:info@ape-org.com">info@ape-org.com</a>
+    </div>
+  </footer>
+</div>
