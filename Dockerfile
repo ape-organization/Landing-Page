@@ -3,7 +3,7 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json first for better caching
+# Copy package files first for better Docker cache
 COPY package.json package-lock.json ./
 
 # Install dependencies
@@ -12,19 +12,16 @@ RUN npm ci
 # Copy the rest of the application
 COPY . .
 
-# Build the application
+# Build Angular
 RUN npm run build
 
 # Stage 2: Serve with nginx
 FROM nginx:alpine
 
-# Copy built artifacts from the build stage
+# Copy built artifacts
 COPY --from=build /app/dist/Landing_Page/browser/ /usr/share/nginx/html/
 
-# Copy custom nginx config if needed (optional)
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Expose port 80
+# Expose port
 EXPOSE 80
 
 # Start nginx
