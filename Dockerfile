@@ -1,28 +1,33 @@
-# Stage 1: Build the Angular application
+# =========================
+# Stage 1: Build Angular
+# =========================
 FROM node:22.22.3-alpine AS build
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json first for better caching
+# Copy package files
 COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy the rest of the application
+# Copy source code
 COPY . .
 
-# Build the application
+# Build Angular
 RUN npm run build
 
-# Stage 2: Serve with nginx
+
+# =========================
+# Stage 2: Nginx
+# =========================
 FROM nginx:alpine
 
-# Copy built artifacts from the build stage
-COPY --from=build /app/dist/Landing_Page/browser/ /usr/share/nginx/html/
+# Copy Angular build output
+COPY --from=build /app/dist/ape-app/ /usr/share/nginx/html/
 
-# Expose port 80
+# Expose HTTP
 EXPOSE 80
 
-# Start nginx
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
