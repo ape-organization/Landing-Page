@@ -24,7 +24,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy Angular build output
-COPY --from=build /app/dist/ape-app/ /usr/share/nginx/html/
+COPY --from=build /app/dist/ape-app/browser/ /usr/share/nginx/html/
 
 # Expose HTTP
 EXPOSE 80
